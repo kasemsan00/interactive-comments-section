@@ -1,11 +1,26 @@
 import Card from "../Layout/Card"
+interface Props {
+  image: {
+    png: string
+    webp: string
+  }
+  username: string
+}
 
-export default function Answer() {
+export default function Answer({ image, username }: Props) {
   return (
     <Card>
-      <div>Display</div>
-      <textarea rows={4} className="resize-none rounded-md border p-4 focus:outline-none"></textarea>
-      <button className="w-20 self-start rounded-md bg-ModerateBlue px-4 py-2 text-white ">SEND</button>
+      <div className="h-12 w-12 rounded-full ">
+        <img src={image.png} alt={username} />
+      </div>
+      <textarea
+        placeholder="Add a comment..."
+        rows={4}
+        className="w-96 resize-none rounded-md border p-2 focus:outline-none"
+      ></textarea>
+      <button className="w-20 self-start rounded-md bg-ModerateBlue px-4 py-3 text-sm font-bold text-white ">
+        SEND
+      </button>
     </Card>
   )
 }

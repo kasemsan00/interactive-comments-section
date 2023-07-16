@@ -3,5 +3,5 @@ interface Props {
 }
 
 export default function Card({ children }: Props) {
-  return <div className="flex max-w-sm flex-row gap-2 rounded-md bg-White p-4"> {children}</div>
+  return <div className="flex w-full flex-row gap-2 rounded-md bg-White p-4"> {children}</div>
 }
