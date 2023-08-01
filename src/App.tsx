@@ -5,7 +5,7 @@ import Comment from "./Commment/Comment.tsx"
 import { useCurrentUserDetail } from "./Store/currentUser.tsx"
 import { useEffect } from "react"
 
-function App() {
+export default function App() {
   const { username, imagePng, imageWebp, setImagePng, setImageWebp, setUserName } =
     useCurrentUserDetail()
   const { currentUser, comments } = dataJSON
@@ -35,13 +35,11 @@ function App() {
       <div className="flex h-fit w-fit flex-col gap-2">
         {comments.map((comment, index: number) => (
           <div key={index}>
-            <Comment {...comment} />
+            <Comment isSubItem={false} {...comment} />
           </div>
         ))}
-        <Answer {...currentUser} />
+        <Answer {...currentUser} buttonAction="SEND" />
       </div>
     </div>
   )
 }
-
-export default App

@@ -1,17 +1,16 @@
 import Card from "../Layout/Card"
+import { useCurrentUserDetail } from "../Store/currentUser.tsx"
+
 interface Props {
-  image: {
-    png: string
-    webp: string
-  }
-  username: string
+  buttonAction: string | undefined
 }
 
-export default function Answer({ image, username }: Props) {
+export default function Answer({ buttonAction }: Props) {
+  const { username, imagePng } = useCurrentUserDetail()
   return (
     <Card>
       <div className="h-12 w-12 rounded-full ">
-        <img src={image.png} alt={username} />
+        <img src={imagePng} alt={username} />
       </div>
       <textarea
         placeholder="Add a comment..."
@@ -19,7 +18,7 @@ export default function Answer({ image, username }: Props) {
         className="w-full resize-none rounded-md border p-2 focus:outline-none"
       ></textarea>
       <button className="w-20 self-start rounded-md bg-ModerateBlue px-4 py-3 text-sm font-bold text-white ">
-        SEND
+        {buttonAction}
       </button>
     </Card>
   )
