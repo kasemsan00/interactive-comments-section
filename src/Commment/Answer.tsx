@@ -16,7 +16,7 @@ export default function Answer({ image, username }: Props) {
       <textarea
         placeholder="Add a comment..."
         rows={4}
-        className="w-96 resize-none rounded-md border p-2 focus:outline-none"
+        className="w-full resize-none rounded-md border p-2 focus:outline-none"
       ></textarea>
       <button className="w-20 self-start rounded-md bg-ModerateBlue px-4 py-3 text-sm font-bold text-white ">
         SEND
