@@ -4,6 +4,7 @@ import Answer from "./Commment/Answer"
 import Comment from "./Commment/Comment.tsx"
 import { useCurrentUserDetail } from "./Store/currentUser.tsx"
 import { useEffect } from "react"
+import React from "react"
 
 export default function App() {
   const { username, imagePng, imageWebp, setImagePng, setImageWebp, setUserName } =
@@ -34,9 +35,9 @@ export default function App() {
     <div className="flex h-screen  justify-center bg-LightGray">
       <div className="flex h-fit w-fit flex-col gap-2">
         {comments.map((comment, index: number) => (
-          <div key={index}>
-            <Comment isSubItem={false} {...comment} />
-          </div>
+          <React.Fragment key={index}>
+            <Comment index={index} isSubItem={false} {...comment} />
+          </React.Fragment>
         ))}
         <Answer {...currentUser} buttonAction="SEND" />
       </div>
